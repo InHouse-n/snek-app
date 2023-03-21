@@ -1,0 +1,7 @@
+{
+    "python.defaultInterpreterPath": "/home/ganymede/.cache/pypoetry/virtualenvs/snek-back-AFLG6Nfh-py3.10/bin/python",
+    "terminal.integrated.env.windows": {
+      "PYTHONPATH": "${workspaceFolder}/src;${workspaceFolder}/tests"
+    },
+    "python.envFile": "${workspaceFolder}/.env"
+  }
