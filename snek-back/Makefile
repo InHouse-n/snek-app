@@ -26,7 +26,7 @@ test:
 safety:
 	poetry export --with dev --format=requirements.txt --without-hashes | poetry run safety check --stdin
 
-qa: safety lint test ## for CI/CD.
+qa: safety lint test
 .PHONY: qa
 
 qa-local: format qa
