@@ -1,22 +1,20 @@
-
 from typing import List
-
-from fastapi import FastAPI, Request, Depends
-from fastapi.middleware import Middleware
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 
 from api import router
 from api.home import home_router
 from core.config import config
+from core.exceptions.base import CustomException
 from core.fastapi.dependencies import Logging
-from core.fastapi.middlewares import (
-    AuthenticationMiddleware,
+from core.fastapi.middlewares import (  # SQLAlchemyMiddleware,
     AuthBackend,
-    # SQLAlchemyMiddleware,
+    AuthenticationMiddleware,
     ResponseLogMiddleware,
 )
-from core.exceptions.base import CustomException
+from fastapi import Depends, FastAPI, Request
+from fastapi.middleware import Middleware
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+
 # from core.helpers.cache import Cache, RedisBackend, CustomKeyMaker
 
 
