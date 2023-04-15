@@ -1,4 +1,12 @@
 <p>home works!</p>
 
-<button (click)="connect()" >Click me!</button>
 <button (click)="sendMessage()" >Send message!</button>
+
+<ngx-snake #game></ngx-snake>
+<button (click)="startGame()">Start</button>
+<button (click)="game.actionStop()">Stop</button>
+<button (click)="game.actionReset()">Reset</button>
+<button (click)="game.actionUp()">Up</button>
+<button (click)="game.actionLeft()">Left</button>
+<button (click)="game.actionRight()">Right</button>
+<button (click)="game.actionDown()">Down</button>
