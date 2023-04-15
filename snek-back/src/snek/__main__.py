@@ -20,13 +20,9 @@ from core.config import config
 )
 def main(env: str, debug: bool):
     """Main function, start coding here"""
-    logger_provider.set_logger_level(env)
 
     log = logger_provider.get_logger(__name__)
-    log.debug("This is a Debug log")
-    log.info("This is a information log")
-    log.error("This is a Error log")
-    log.critical("This is a Critical log")
+    log.info("Starting uvicorn server...")
 
     uvicorn.run(
         app="app.server:app",

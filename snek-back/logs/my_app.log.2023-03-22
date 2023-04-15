@@ -1,0 +1,4 @@
+2023-03-22 07:51:12,341 — __main__ — DEBUG — This is a Debug log
+2023-03-22 07:51:12,341 — __main__ — INFO — This is a information log
+2023-03-22 07:51:12,341 — __main__ — ERROR — This is a Error log
+2023-03-22 07:51:12,341 — __main__ — CRITICAL — This is a Critical log
