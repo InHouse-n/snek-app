@@ -1,4 +1,6 @@
 from typing import List
+import logger_provider
+import dataclasses
 
 from api import router
 from api.home import home_router
@@ -10,7 +12,7 @@ from core.fastapi.middlewares import (  # SQLAlchemyMiddleware,
     AuthenticationMiddleware,
     ResponseLogMiddleware,
 )
-from fastapi import Depends, FastAPI, Request
+from fastapi import Depends, FastAPI, Request, WebSocket
 from fastapi.middleware import Middleware
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -86,4 +88,23 @@ def create_app() -> FastAPI:
     return app_
 
 
+log = logger_provider.get_logger(__name__)
 app = create_app()
+
+@app.websocket("/")
+async def websocket_test(websocket: WebSocket):
+    await websocket.accept()
+    log.info("accepting websocket connection")
+    await websocket.send_json("you connected!")
+    while True:
+        data = await websocket.receive_json()
+        log.info(f"got data: {data}")
+        await websocket.send_json(f"Yow broer, ge stuurde my dit: {data}")
+
+@dataclasses.dataclass
+class Point:
+    x: int
+    y: int
+
+def consult_model(snake: List[Point], candy: Point) -> Direction:
+    pass
